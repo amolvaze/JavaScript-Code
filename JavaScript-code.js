@@ -1383,7 +1383,7 @@ a1["prop3"] = "something else";
 console.log("Length of array is " + a1.length);
 
 
-43. // How do I test for empty JS object
+49. // How do I test for empty JS object
 
 var a = {}; //Blank Object
 var b = {name: 'FirstName', surname: 'LastName'};
@@ -1408,3 +1408,115 @@ for(let i =0; i< length; i++) {
         console.log('Empty', arr[i]);
     }
 }
+
+50. // How to add js Proxy for nested Objects
+
+// Example
+
+var validator = {
+  set (target, key, value) {
+    console.log(target);
+    console.log(key);
+    console.log(value);
+    if(isObject(target[key])){
+      
+    }
+    return true
+  }
+}
+
+
+var person = {
+      firstName: "alfred",
+      lastName: "john",
+      inner: {
+        salary: 8250,
+        Proffesion: ".NET Developer"
+      }
+}
+var proxy = new Proxy(person, validator)
+proxy.inner.salary = 'foo'
+
+51.
+   // jQuery function to count the no of cells in table for the given HTML
+   /* <h3>Some test tables</h3>
+<div>
+<p>First table</p>
+    <table>
+        <tr>
+            <td>First</td>
+            <td>row</td>
+        </tr>
+        <tr>
+            <td>and</td>
+            <td>second</td>
+            <td>row</td>
+        </tr>
+        <tr>
+            <td>and</td>
+            <td>the</td>
+            <td>third</td>
+            <td>one</td>
+        </tr>
+    </table>
+</div>
+<p>Second table</p>
+<table>
+    <tr>
+        <td>Not</td>
+        <td>so</td>
+    </tr>
+    <tr>
+        <td>many</td>
+        <td>cells</td>
+    </tr>
+</table> */
+ var $tables = $('table');
+ //console.log($tables.length);
+      if($tables.length === 0) console.log(0);
+      var maxCells=0;
+      $tables.each(function( index ) {
+      var $table = $(this);
+      var cells = $table.find('td').length;
+      console.log(cells)
+      if(cells > maxCells) {
+         maxCells= cells;  
+}
+
+});
+    console.log(maxCells);
+
+// JS Inheritance
+       |
+-------------------------
+   |                    |
+Prototypal            Classical
+    |
+-------------------------------------------------
+|                                               |          
+constructor Pattern                    Prototypal Pattern
+
+
+//Classical Model - Object is created from class 
+// E.g 
+/*
+     class person { 
+	   fn() {
+		   ...
+	   } or constructor function say function Person() {}
+	 }
+		 
+ */
+// Create instance 
+// let person = new Person();
+
+
+// Prototypal Model - Object is created directly from another object.
+
+// base object 
+/*
+  let Person =  {  fn() {... } }
+ */
+
+// Create instance
+// let person = Object.create(Person);
