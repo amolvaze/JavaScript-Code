@@ -1,4 +1,5 @@
-// Compiled by Amol on Sept 26, 2020.
+// Compiled by Amol on 2 Oct, 2020
+
 //Given sample alphanumerical string -- find the first character that doesn’t repeat on string
 
 //Link:- https://codeburst.io/explaining-value-vs-reference-in-javascript-647a975e12a0 - Obj concepts
@@ -162,10 +163,28 @@ var incrementClickCount = (function() {
    }  	
 })();
 
-document.write(incrementClickCount());
+document.write(incrementClickCount()); // output should be 1 
+
+// Another example
+let f;
+
+if(true){
+  let i =1;
+
+  f = () => {
+    console.log(i);
+  }
+
+}
+
+console.log(f);
+
+f();
 
 
 // Another example 
+
+// Concept of JS Currying
 
 function makeAdder(x) {
  return function(y){
@@ -533,7 +552,7 @@ function money(total)
    let cT = total * 100; // converting into single unit
    let reminder = cT%value.dollar;
    let dollar = cT- reminder;
-   // do same thing for everthing or loop thru value onject to do ....
+   // do same thing for everthing or loop thru value object to do ....
 }
 
 14. 
@@ -732,7 +751,7 @@ if(i%5==0)
 
 console.log(fizbuzz());
 
-// Another variation for above
+// Another variation for above to print United, States and United States
 let print = () => {
   for(let i=1; i<=100; i++){
     let str ='';
@@ -1007,18 +1026,18 @@ console.log(profile.firstName);
 // Prototypal inheritance example - all the methods are available 
 // automtically even if there are thousand objects.
 
-let car = function(model) {
+let Car = function(model) {
   this.model = model;
 }
 
-car.prototype.getModel = function() {
+Car.prototype.getModel = function() {
   return this.model;
 }
 
-let toyota = new car('toyota');
+let toyota = new Car('toyota');
 console.log(toyota.getModel());
 
-let nissan = new car('nissan');
+let nissan = new Car('nissan');
 console.log(nissan.getModel());
 
 
@@ -1409,6 +1428,7 @@ for(let i =0; i< length; i++) {
     }
 }
 
+
 50. // How to add js Proxy for nested Objects
 
 // Example
@@ -1485,6 +1505,42 @@ proxy.inner.salary = 'foo'
 
 });
     console.log(maxCells);
+	
+52. // what does this refers to in case of an arrow function
+
+// ex
+
+ function Person() {
+	 this.age = 0;
+	 setInterval(() => {this.age++;}, 1000);
+ }
+ 
+ var p = new Person();
+ console.log(p);
+ 
+ 53. // To get subset of an object.
+ 
+ // Use case for destructirng assignment. 
+ 
+const obj = {a:1, b:2, c:3},
+subset = (({a,c}) => ({a,c}))(obj);
+console.log(subset);
+
+
+// To swap values - another use case. 
+
+
+ const b = [1,2,3,4];
+
+ [b[0], b[2]] = [b[2], b[0]];
+
+console.log(b);
+
+54. // How to replace multiple characters in one repalce call.
+
+var str = '#this #is__ __#a test###__'
+str = str.replace(/#|_/g,'');
+console.log(str);
 
 // JS Inheritance
        |
@@ -1520,3 +1576,433 @@ constructor Pattern                    Prototypal Pattern
 
 // Create instance
 // let person = Object.create(Person);
+
+// Spread operator and rest parameters
+
+// with the spread operator we get the better performance.
+
+var x = function(...n) {
+
+console.log(n)	
+	
+}
+
+x(1,2,3,4);
+
+var x = function() {
+  //console.log(arguments); // prints array like object
+  // To convert arguments object into real array
+  var args = Array.prototype.slice.call(arguments, 0);
+  console.log(args);
+}
+
+// Below ex- passing arguments using a spread operator are called rest parameters.
+
+var x = function(a,b,c, ...n) {
+  
+}
+
+x(1,2,3,4);
+
+// To combine to arrays 
+
+var a = [1,2,3]
+var b = [4,5,6]
+a.push(...b)
+
+console.log(a) // output = [1,2,3,4,5,6]
+
+// Debugging techniques using console.time
+console.time('st');
+setTimeout(() => {
+ console.timeEnd('st');
+}, 5000)
+
+let a =1;
+let b =2;
+
+debugger;
+
+// USe of callback functions JS ex
+let add = (a,b) => {
+   return a + b;
+}
+
+let multiply = (a,b) => {
+   return a * b;
+}
+
+let doWhatever = function(a,b) {
+ console.log(`Two nos back ${a}, ${b}`)
+}
+
+let calc = function(num1, num2, callback) {
+  if(typeof callback  ===  "function"){
+   return callback(num1,num2);
+  }
+  // if(calType === "add"){
+  //    return num1 + num2;
+  // }
+  // else if(calType === "multiply") {
+  //   return num1 * num2;
+  // }
+
+};
+
+//console.log(calc(2,3,'add'))
+//console.log(calc(2,3,'multiply'))
+
+console.log(calc(2,3,doWhatever))
+
+// write fn inside directly as follows:- 
+
+console.log(calc(2,3,function(a,b){
+   return a-b;
+}))
+
+// Another Ex using a Callback
+
+var myArr = [{
+  num: 5,
+  str: 'apple'
+},{
+ num: 7,
+  str: 'cabbage'
+}, {
+ num: 1,
+  str: 'banana'
+}];
+
+myArr.sort(function(a,b){
+  if(a.str > b.str) {
+     return -1;
+  }
+  else {
+    return 1;
+  }
+});
+
+// Object assign - create a copy
+// object.assign
+
+let toyota = {
+   drive() {
+      return 'driving toyota';
+   },
+   brake() {
+     return 'braking toyota';
+   }
+
+};
+
+
+let camry = {
+   wifi() {
+      return 'using wifi';
+   },
+
+   drive () {
+     return 'driving camry';
+   }
+
+};
+
+Object.assign(camry, toyota);
+
+console.dir(camry.drive());// overwrite the local method when there is name collision.. since both objects have drive method in common, it will take toyota one
+
+// create new object from the existing one as follows: - doing shallow copy, it is not doing anything to prototype so it is not a deep copy
+
+let copyToyota = Object.assign({}, toyota);
+
+console.dir(copyToyota)
+
+// create new object with some new property 
+Object.assign(toyota, {
+   wifi() {
+     return 'using wifi';
+   },
+   color: 'red'
+});
+
+console.dir(toyota);
+
+// To create some constructor function 
+let c1 = function(x,y,z) {
+  Object.assign(this, x,y,z); //  using object assign 
+}
+
+
+// Var hoising - it is an issue with var for hoisting 
+
+var x = function() {
+   var y =1;
+   var z = function() {
+  console.log(y);
+   }
+   z(); // y is availabe inside z too
+}
+
+x();
+//console.log(y)
+
+var x = function() {
+   console.log(y); // gives undefined due to hoisting. 
+   var y =1; // 
+}
+
+// above can be represented as 
+
+var y;
+console.log(y); // hence it is undefined.
+y=1;
+
+
+x();
+// Object.Create
+const Car = function(color) {
+ this.color = color;
+}
+
+const car1 = new Car('red') // constructor 
+const car2 = Object.create(Car.prototype) // no color property for this one
+
+console.log(car1);
+console.log(car2);
+
+// Object create is to extend constructor
+
+Car.prototype = { // new Syntax
+   getColor() { 
+      return this.color;
+   }
+};
+
+const ToyCar = function() {
+ 
+}
+
+ToyCar.prototype = Object.create(Car.prototype);
+const legoCar = new ToyCar();
+//console.dir(legoCar instanceof Car); // returns true
+//console.dir(ToyCar.prototype.isPrototypeOf(legoCar)); // returns true
+//console.dir(Object.prototype.isPrototypeOf(legoCar)); // returns true
+//console.dir(Car.prototype.isPrototypeOf(legoCar)); // returns true
+
+// here we do not copy anything but we just keep a reference.
+// ----------------------------------------------------------------------------
+// Method Chaining in JS
+
+var obj = function() {
+  this.i=0; // public var using this
+  this.add= function(i) { // public method using this
+     this.i += i;
+     return this;
+  };
+  this.substract= function(i) { // public method using this
+     this.i -= i;
+     return this;
+  };
+  this.print = function() { // public method using this
+    console.log(this.i); 
+  }
+};
+
+ var x = new obj();
+// x.add(3);
+// x.substract(2);
+// x.print();
+//console.log(x.add(3)) // it gives an error as it is not returning anything
+
+x.add(3).substract(2).print() // it will print 1 as we have return this at the end of add and subtract. We do not need for the last print function.
+
+// Converting above to private for closure
+
+var obj = function() {
+  var i =0;; // private var
+ var add= function(j) { // private method
+      i += j;
+     return this;
+  };
+  var substract= function(j) { // private method
+     i -= j;
+     return this;
+  };
+  var print = function() { // private method
+    console.log(i); 
+  };
+
+  return {add: add, substract: substract, print:print };
+};
+
+var x = obj(); // no new keyword is needed for private
+x.add(3).substract(2).print() // it will print 1 as before.
+
+
+// call, apply nad bind general syntax
+
+var obj = {num:2};
+
+var functionName = function(arg1, arg2, arg3) {
+	  
+};
+
+// Call 
+functionName.call(obj, arg1,arg2,arg3);
+
+// Apply 
+// in this case second parameter is combine array of arguments togehter
+var arr = [arg1, arg2, arg3];
+functionName.apply(obj, [arg1, arg2.arg3] );
+
+// Bind
+var bound = functionName.bind(obj);
+bound(arg1,arg2,arg3);
+
+
+Securonix glassdoor que solns links - 
+
+https://www.javatpoint.com/difference-between-hashmap-and-hashtable
+
+https://algorithms.tutorialhorizon.com/sort-names-by-their-last-names/
+
+// -----------------------------------------------------------------------------------------------------------------------------------
+
+// Callback  JS 
+
+const posts = [
+   {title:'post1' , body: 'this is post one'},
+   {title:'post2' , body: 'this is post two'},
+];
+
+function getPosts() {
+  setTimeout(()=>{
+    let output = '';
+    posts.forEach((post, index) => {
+    output += ` ${post.title}`
+    })
+    console.log(output);
+  }, 1000);
+}
+
+function createPost(post , callback) {
+  setTimeout(() => {
+    posts.push(post)
+    callback();
+  }, 2000);
+}
+
+//getPosts();
+createPost({title:'post3', body: 'this is post three'}, getPosts);
+console.log(posts); // output will be post 1 post 2 post 3
+
+// -------------------------------------------------------------------------------------------------------------------------
+// Same example with promises  JS 
+
+const posts = [
+   {title:'post1' , body: 'this is post one'},
+   {title:'post2' , body: 'this is post two'},
+];
+
+function getPosts() {
+  setTimeout(()=>{
+    let output = '';
+    posts.forEach((post, index) => {
+    output += ` ${post.title}`
+    })
+    console.log(output);
+  }, 1000);
+}
+
+function createPost(post) {
+  return new Promise((resolve, reject) => {
+  setTimeout(() => {
+    posts.push(post)
+    //callback();
+    const error = false; // it will print all 3 posts 
+    //const error = true; // it will catch error
+    if(!error) {
+      resolve();
+    }
+    else {
+      reject('Error: something went wrong..!!')
+    }
+  }, 2000); 
+  });
+ 
+}
+
+ createPost({title:'post3', body: 'this is post three'})
+ .then(getPosts)
+.catch(err => console.log(err)); // output will be post 1 post 2 post 3
+
+// -------------------------------------------------------------------------------------------------
+
+// Promise.all
+
+const promise1 = Promise.resolve('Hello World!')
+const promise2 = 10;
+const promise3 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 2000, 'Good Bye!')
+})
+
+const promise4 = fetch('https://jsonplaceholder.typicode.com/users').then(res => res.json());
+
+Promise.all([promise1, promise2, promise3, promise4])
+.then((values) => {
+  console.log(values)
+})
+
+console.log(posts);
+
+// -----------------------------------------------------------------------------------------------
+// same example with Async/ Await JS
+
+const posts = [
+   {title:'post1' , body: 'this is post one'},
+   {title:'post2' , body: 'this is post two'},
+];
+
+function getPosts() {
+  setTimeout(()=>{
+    let output = '';
+    posts.forEach((post, index) => {
+    output += ` ${post.title}`
+    })
+    console.log(output);
+  }, 1000);
+}
+
+function createPost(post) {
+  return new Promise((resolve, reject) => {
+  setTimeout(() => {
+    posts.push(post)
+    //callback();
+    const error = false; // it will print all 3 posts 
+    //const error = true; // it will catch error
+    if(!error) {
+      resolve();
+    }
+    else {
+      reject('Error: something went wrong..!!')
+    }
+  }, 2000); 
+  });
+ 
+}
+
+ async function init() {
+     await createPost({title:'post3', body: 'this is post three'});
+     getPosts();
+}
+
+ init();
+
+// with fetch
+async function fetchUsers() {
+   const res = await fetch('https://jsonplaceholder.typicode.com/users');
+   const data = await res.json(); // to format into json
+   console.log(data);
+}
+
+fetchUsers();
