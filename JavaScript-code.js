@@ -1,4 +1,4 @@
-// Compiled by Amol on 2 Oct, 2020
+// Compiled by Amol on 3 Oct, 2020
 
 //Given sample alphanumerical string -- find the first character that doesn’t repeat on string
 
@@ -95,6 +95,40 @@ return (arr[1]);
 var arr = [40, 100, 1, 5, 25, 10];
 console.log(second_largest(arr));
 console.log(second_smallest(arr));
+
+// function to return the total no of arguments without using any loop
+let x = function() {
+	return [].slice.call(arguments).length;
+}
+
+console.log(x(1,2,3,4,5)); // output should be 5 as length is 5 
+
+
+// arguments do not bind well with arrow functions.. never use it with arrow function
+
+let a = () => arguments;
+a('hi'); // this wont work due to arrow function with arguments
+
+//To fix it use this
+let a = (...n) => { return n; }; // use ...n rather 
+console.log(a('hi'));
+
+// if we convert above to regular function, it will print hi.
+
+let a = function() {return arguments; }
+a('hi');
+
+// Object.freeze - Dont allow to add new property
+// Object.seal - Allows to modify property but not to add new property
+// Object.definedProperty - Allows to modify certain property. 
+
+
+console.log( NaN == NaN) or 
+console.log( NaN === NaN) // output should be false 
+
+
+console.log(typeof undefined === typeof NULL)  // true -->The expression will be evaluated to true, since NULL will be treated as any other undefined variable.
+console.log(typeof typeof 1)  // String -- > typeof 1 will return "number" and typeof "number" will return string.
 
 //-------------------------------------------------------------------
 
@@ -197,6 +231,27 @@ console.log(add5(2));
 
 var add10 = makeAdder(10);
 console.log(add10(2));
+
+// currying another example 
+
+var sayWhat = function(a) {
+   return function(b) {
+      return function(c){
+   console.log("Saying.."+ a + "to " +b+  "using " + c );
+      }
+     
+   }
+}
+
+sayWhat('hello')('tofriends')('javascript')
+
+var sayHi = sayWhat('Hi');
+var sayHiToMe = sayHi('Me');
+var sayHiToMeUsingNothing = sayHiToMe('nothing'); 
+
+// Output
+//Saying..helloto tofriends using javascript
+//Saying..Hito Me using nothing
 
 //--------------------------------------------------------------------------------------------------------
 // Function to remove duplicates from Array using filter.
@@ -1859,6 +1914,45 @@ functionName.apply(obj, [arg1, arg2.arg3] );
 var bound = functionName.bind(obj);
 bound(arg1,arg2,arg3);
 
+// e.g to find min value of an array
+let a = [1,2,3];
+console.log(Math.min.apply(null, a)); // output should be 1 
+
+
+// bind 
+
+let button = function(content) {
+ this.content = content;
+}
+
+button.prototype.click = function() {
+  console.log(`${this.content} clicked..`)
+}
+
+let newButton = new button('add');
+
+let boundButton = newButton.click.bind(newButton);
+
+boundButton();
+// Another example
+let myObj = {
+  asyncGet(cb) {
+    cb(); 
+  },
+  parse() {
+    console.log('parse called..')
+  },
+
+  render() {
+    this.asyncGet(function(){
+      this.parse();
+    }.bind(this))  // bind here makes it work - binding outer this to inner this // if we remove .bind(this), it will throw an error saying that
+	// this.parse is not a function
+  }
+
+}
+
+myObj.render();
 
 Securonix glassdoor que solns links - 
 
