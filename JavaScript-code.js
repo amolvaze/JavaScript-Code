@@ -165,6 +165,14 @@ function palindrome(string) {
 
 console.log(palindrome("Nitin"))
 
+// Using Arrow Function
+
+let palindrome = (str) => {
+  return str.toLowerCase().split("").toString() === str.toLowerCase().split("").reverse().toString()
+};
+
+console.log(palindrome("Nitin")); // returns true 
+
 // -------------------------------------------------------------------------------
 
 // Closures in JS example 1
