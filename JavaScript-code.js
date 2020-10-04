@@ -130,6 +130,34 @@ console.log( NaN === NaN) // output should be false
 console.log(typeof undefined === typeof NULL)  // true -->The expression will be evaluated to true, since NULL will be treated as any other undefined variable.
 console.log(typeof typeof 1)  // String -- > typeof 1 will return "number" and typeof "number" will return string.
 
+// undefined - Undefined variable or property
+
+// null - Property does exists but holds no value.
+
+// JS Splice Method - to add or remove array elements
+/* 
+The splice() method adds/removes items to/from an array, and returns the removed item(s).
+
+Note: This method changes the original array. */
+
+var array = [1,2,5];
+array.splice(2,0,3,4);
+console.log(array);
+
+var array = [1,2,55,67,3];
+array.splice(2,2);
+console.log(array);
+
+// JS Slice Method 
+/* The slice() method returns the selected elements in an array, as a new array object.
+
+The slice() method selects the elements starting at the given start argument, and ends at, but does not include, the given end argument. */
+
+// ex.
+var array = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+var sliceArray = array.slice(1,3); // slice out given array from the index 1 and excludes end idnex that is 3rd Orange
+console.log(sliceArray);
+
 //-------------------------------------------------------------------
 
 //Find Missing Characters in a pangram which is sentence having all characters of the alphabets .e.g “The quick brown fox jumps over the lazy dog.”  
@@ -205,7 +233,18 @@ var incrementClickCount = (function() {
    }  	
 })();
 
-document.write(incrementClickCount()); // output should be 1 
+console.log(incrementClickCount()); // output should be 1 
+
+// above ex using an arrow function
+
+var incrementCount = (() =>  {
+    var counter=0;
+    return function() {
+       return ++counter;
+    }
+})();
+
+console.log(incrementCount());
 
 // Another example
 let f;
