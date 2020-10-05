@@ -405,6 +405,21 @@ console.log(sum(10)(20)(3)(4)());
 
 Difference between JavaScript forEach vs JavaScript Map - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
+var array = [1,2,3,4,5];
+// Using forEach 
+array.forEach((num, index) => {
+  return array[index] = num *2; 
+});
+
+console.log(array);
+
+// Using Map
+var resultArray = array.map((num, index) => {
+    return num * 2;
+});
+
+console.log(resultArray);
+
 ----------------------------------------------------------JS Mock Interview Questions and Solutions --------------------------------------------
 
 1. let x = { a:1, b:2};  // to convert given object into array and print 1 and 2.
