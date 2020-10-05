@@ -1,4 +1,4 @@
-// Compiled by Amol on 4 Oct, 2020
+// Compiled by Amol on 3 Oct, 2020
 
 //Given sample alphanumerical string -- find the first character that doesn’t repeat on string
 
@@ -405,6 +405,7 @@ console.log(sum(10)(20)(3)(4)());
 
 Difference between JavaScript forEach vs JavaScript Map - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
+
 var array = [1,2,3,4,5];
 // Using forEach 
 array.forEach((num, index) => {
@@ -419,6 +420,31 @@ var resultArray = array.map((num, index) => {
 });
 
 console.log(resultArray);
+
+// -----------------------------Arrays.from------------------------------------------------------
+
+
+const fromScratch = Array.from({length: 5}, (v,i) => i * i);
+const fromScratch = (new Array(5)).fill(0).map((v,i) => i)
+ console.log(fromScratch)
+
+ const array = [1,1,2];
+// remove duplicate 
+
+const unique = Array.from(new Set(array)); // Set removes duplicates and when Array.from is applied to it, it converts set into an array
+
+// Same Above using speard operator 
+
+const unique = [...new Set(array)]
+
+console.log(unique)
+
+const func = function() {
+  //console.log(arguments)
+  console.log(Array.from(arguments).join('')) // using Array.from which converts into array and then simply joining
+}
+
+func('t','e','c','h');
 
 ----------------------------------------------------------JS Mock Interview Questions and Solutions --------------------------------------------
 
