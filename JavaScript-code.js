@@ -2042,11 +2042,6 @@ let myObj = {
 
 myObj.render();
 
-Securonix glassdoor que solns links - 
-
-https://www.javatpoint.com/difference-between-hashmap-and-hashtable
-
-https://algorithms.tutorialhorizon.com/sort-names-by-their-last-names/
 
 // -----------------------------------------------------------------------------------------------------------------------------------
 
