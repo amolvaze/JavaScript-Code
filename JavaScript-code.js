@@ -2042,6 +2042,33 @@ let myObj = {
 
 myObj.render();
 
+// Code to check if the given no is prime or not
+let isPrime = (n) => {
+
+if( n === 2) {
+  return true;
+}
+
+if( n < 2 || !(n%2) || !Number.isInteger(n)){
+  return false;
+}
+ 
+for(let i=0; i< Math.sqrt(n); i++, i++){
+     if( n%i == 0){
+       return false;
+     }
+}
+return true;
+}
+
+for(let i=0; i< 30; i++){
+  if(isPrime(i)){
+    console.log(i);
+  }
+}
+
+
+
 
 // -----------------------------------------------------------------------------------------------------------------------------------
 
