@@ -2053,7 +2053,7 @@ if( n < 2 || !(n%2) || !Number.isInteger(n)){
   return false;
 }
  
-for(let i=0; i< Math.sqrt(n); i++, i++){
+for(let i=3; i< Math.sqrt(n); i++, i++){
      if( n%i == 0){
        return false;
      }
