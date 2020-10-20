@@ -2067,6 +2067,38 @@ for(let i=0; i< 30; i++){
   }
 }
 
+// To crate a copy of array
+let a = [1,2,3,4];
+
+let b = a; // it will create a reference to b; so if an changes b will also change.
+
+/* // a.push(5);
+
+// console.log(b)
+
+// let b= [];
+// for(let i= 0; i< a.length; i++){
+//   b.push(a[i]);
+// }
+
+// // console.log(b)
+
+// // Using Object.assign
+
+// // let b = Object.assign( [], a);
+
+// // console.log(b)
+
+// // Using Spread Operator - shallow copy and not deep copy so it is not doing anything prorotype which deep copy does. 
+
+// // let b = [...a];
+
+// // console.log(b)
+
+// let b = JSON.parse(JSON.stringify(a)); // deep copy.
+
+// console.log(b); */
+
 
 
 
