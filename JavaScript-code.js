@@ -2132,6 +2132,31 @@ function createPost(post , callback) {
 createPost({title:'post3', body: 'this is post three'}, getPosts);
 console.log(posts); // output will be post 1 post 2 post 3
 
+
+// Another example
+function A() {
+  setTimeout(()=>{
+    console.log("Hello from A");
+  }, 1000);
+}
+
+function B(callback) {
+  setTimeout(() => {
+    console.log("Hello from B");
+    callback();
+  }, 2000);
+}
+
+
+console.log(A(B))
+
+// Output will print 'Hello from A'
+console.log(B(A))
+// Above one will print output as Hello from B and Hello from A both 
+
+
+
+
 // -------------------------------------------------------------------------------------------------------------------------
 // Same example with promises  JS 
 
