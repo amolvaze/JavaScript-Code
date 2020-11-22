@@ -1,4 +1,4 @@
-// Compiled by Amol on 21 Nov 2020
+// Compiled by Amol on 22 Nov 2020
 
 //Given sample alphanumerical string -- find the first character that doesn’t repeat on string
 
@@ -533,6 +533,22 @@ a.reverse(); // 8 7 5 3
 var b = [3,5,7,8]
 var reverseArray = [].concat(b).reverse();
 console.log(reverseArray)
+
+
+// To check if both arrays are equal
+
+let arraysEqual = (a1, a2) => {
+ if(a1.length != a2.length) {
+    return false;
+ }
+
+return a1.every(e => a2.includes(e));
+
+}
+
+const arr1 = [1, 2, 5, 4, 0];
+const arr2 = [2, 4, 5, 0, 1];
+console.log(arraysEqual(arr1,arr2))
 
 3. const obj ={  // to make  modification to code to print values of the object. 
 	 a:1,
@@ -2406,3 +2422,8 @@ const nums1 = [1,3];
 const nums2 = [2];
 
 console.log(findMedianSortedArrays(nums1, nums2))
+
+
+
+
+
