@@ -581,7 +581,7 @@ console.log(adjacentElementsProduct([1,2,3]));
 };
 
 console.log(obj.getA().getB());
-	
+
 // Object.keys example
 
 var foo = { 'alpha' : 'puffin', 'beta' : 'beagle' };
@@ -681,20 +681,19 @@ console.log(c);
 //To do in n comparions we can have two pointer approach. so 2n time which is faster than n log n
 
 
-8.
-// const obj = {
-//    x:1,
-//    getX(){
-//     const inner = function()
-//      {
-//        console.log(this.x);
-//      }
-//      inner();
-//    }
-// };
+// To print key and value of given object 
+var a = {
+ name:'John',
+ age: 32,
+ occupation: 'developer'
+}
 
-// console.log(obj.getX()); // undefined as this is out of scope.
-// to fix above convert inner to arrow function as shown
+const keyValue = (input) => Object.entries(input).forEach(([key,value]) => {
+  console.log(key,value)
+})
+
+
+keyValue(a)
 
 const obj = {
    x:1,
