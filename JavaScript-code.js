@@ -695,6 +695,16 @@ const keyValue = (input) => Object.entries(input).forEach(([key,value]) => {
 
 keyValue(a)
 
+
+// Another approach
+let printKeyValue = a => {
+		for(const [key, value] of Object.entries(a)) {
+		 console.log(`${key} ${value}`)
+		}
+}
+
+console.log(printKeyValue(a))
+
 const obj = {
    x:1,
    getX(){
