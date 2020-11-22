@@ -1,4 +1,4 @@
-// Compiled by Amol on 3 Oct, 2020
+// Compiled by Amol on 21 Nov 2020
 
 //Given sample alphanumerical string -- find the first character that doesn’t repeat on string
 
@@ -300,6 +300,65 @@ var sayHiToMeUsingNothing = sayHiToMe('nothing');
 //Saying..helloto tofriends using javascript
 //Saying..Hito Me using nothing
 
+// Debouncing ex code
+
+// Debouncing in Javascript
+let counter = 0;
+const getData = () => {
+  // calls an API and gets Data
+  console.log("Fetching Data ..", counter++);
+}
+
+const debounce = function (fn, d) {
+  let timer;
+  return function () {
+    let context = this,
+      args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      getData.apply(context, arguments);
+    }, d);
+  }
+}
+
+const betterFunction = debounce(getData, 300);
+
+
+// Throttling code ex
+
+const loggerFunc = () => {
+  console.count("Throttled Function");
+}
+
+const throttle = (fn, limit) => {
+  let flag = true;
+  return function(){
+    let context = this;
+    let args = arguments;
+    if(flag){
+      fn.apply(context, args);
+      flag = false;
+      setTimeout(() => {
+        flag=true;
+      }, limit);
+    }
+  }
+}
+
+const betterLoggerFunction = throttle(loggerFunc, 1000);
+
+window.addEventListener("resize",betterLoggerFunction);
+
+// This is the normal Function without Throttling
+//Check the console for the difference between the calls of Normal Function and the Throttled Function 
+const normalFunc = () => {
+  console.count("Normal Function");
+}
+
+window.addEventListener("resize",normalFunc);
+
+
+
 //--------------------------------------------------------------------------------------------------------
 // Function to remove duplicates from Array using filter.
 
@@ -423,6 +482,7 @@ console.log(resultArray);
 
 // -----------------------------Arrays.from------------------------------------------------------
 
+//  Arrays.from is to convert string to array
 
 const fromScratch = Array.from({length: 5}, (v,i) => i * i);
 const fromScratch = (new Array(5)).fill(0).map((v,i) => i)
@@ -433,7 +493,7 @@ const fromScratch = (new Array(5)).fill(0).map((v,i) => i)
 
 const unique = Array.from(new Set(array)); // Set removes duplicates and when Array.from is applied to it, it converts set into an array
 
-// Same Above using speard operator 
+// Same using speard operator 
 
 const unique = [...new Set(array)]
 
@@ -464,10 +524,20 @@ let y = "ih";
 const reverseStr = (str) => str.toLowerCase().split('').reverse().join('');
 console.log(reverseStr(x) === y);
 
+// Reverse Array in JS
+var a = [3,5,7,8];
+a.reverse(); // 8 7 5 3
+
+// Another approach 
+
+var b = [3,5,7,8]
+var reverseArray = [].concat(b).reverse();
+console.log(reverseArray)
+
 3. const obj ={  // to make  modification to code to print values of the object. 
 	 a:1,
 	 b:2,
-	 getA(){console.log(this.a); return this; // we need to return this  },
+	 getA(){console.log(this.a); return this; // we need to return this because subsequent methods are called in method chaining },
 	 getB(){console.log(this.b)}	
 };
 
@@ -1231,7 +1301,7 @@ for(let i=0; i< length; i++){
 }
 
 console.log(b);
-//time complexity for above - O(n^2)
+//time complexity for above ~ O(n^2)
 //approach 2
 //sing filter
 function removeDuplicates(a) {
@@ -1314,6 +1384,7 @@ for(var i=0; i< 3;i++)
 // if we change var instead in above, it will print 3,3,3 - because every time same i will change the variable values for closure.
 
 // To fix this, by keeping var as before in the above case and wrapping setTimeOut code inside function and self-invoking itself will print again 0,1,2.
+// by IIFE/self invoking fucntion, it creates block scope.
 
 for(var i=0; i< 3; i++){
   ((i) => {
@@ -1451,7 +1522,7 @@ console.log(calc('sum')(1,2));
 console.log(calc('product')(3,4));
 
 45.
-// Function to reverse the string  where each word is separated by the single space and there wont be any extra space in a string.
+// Function to reverse the string where each word is separated by the single space and there wont be any extra space in a string.
 function revereStr(str){
   return str.split(" ").map(function(item){
      return item.split("").reverse().join("");
@@ -1710,7 +1781,7 @@ constructor Pattern                    Prototypal Pattern
 // let person = new Person();
 
 
-// Prototypal Model - Object is created directly from another object.
+// Prototypal Model - Object is created directly from another object (using Object.create)
 
 // base object 
 /*
@@ -1854,7 +1925,8 @@ Object.assign(camry, toyota);
 
 console.dir(camry.drive());// overwrite the local method when there is name collision.. since both objects have drive method in common, it will take toyota one
 
-// create new object from the existing one as follows: - doing shallow copy, it is not doing anything to prototype so it is not a deep copy
+// create new object from the existing one as follows: - doing shallow copy, it is not doing anything to prototype or prototype methods 
+//so it is not a deep copy
 
 let copyToyota = Object.assign({}, toyota);
 
@@ -2042,6 +2114,7 @@ let myObj = {
 
 myObj.render();
 
+
 // Code to check if the given no is prime or not
 let isPrime = (n) => {
 
@@ -2053,8 +2126,8 @@ if( n < 2 || !(n%2) || !Number.isInteger(n)){
   return false;
 }
  
-for(let i=3; i< Math.sqrt(n); i++, i++){
-     if( n%i == 0){
+for(let i=3; i<= Math.sqrt(n); i++, i++){
+     if( n%i === 0){
        return false;
      }
 }
@@ -2066,6 +2139,7 @@ for(let i=0; i< 30; i++){
     console.log(i);
   }
 }
+
 
 // To crate a copy of array
 let a = [1,2,3,4];
@@ -2100,8 +2174,6 @@ let b = a; // it will create a reference to b; so if an changes b will also chan
 // console.log(b); */
 
 
-
-
 // -----------------------------------------------------------------------------------------------------------------------------------
 
 // Callback  JS 
@@ -2132,7 +2204,6 @@ function createPost(post , callback) {
 createPost({title:'post3', body: 'this is post three'}, getPosts);
 console.log(posts); // output will be post 1 post 2 post 3
 
-
 // Another example
 function A() {
   setTimeout(()=>{
@@ -2155,8 +2226,6 @@ console.log(B(A))
 // Above one will print output as Hello from B and Hello from A both 
 
 
-
-
 // -------------------------------------------------------------------------------------------------------------------------
 // Same example with promises  JS 
 
@@ -2177,7 +2246,7 @@ function getPosts() {
 
 function createPost(post) {
   return new Promise((resolve, reject) => {
-  setTimeout(() => {
+  setTimeout((f) => {
     posts.push(post)
     //callback();
     const error = false; // it will print all 3 posts 
@@ -2256,8 +2325,8 @@ function createPost(post) {
      await createPost({title:'post3', body: 'this is post three'});
      getPosts();
 }
-
  init();
+
 
 // with fetch
 async function fetchUsers() {
@@ -2267,6 +2336,11 @@ async function fetchUsers() {
 }
 
 fetchUsers();
+
+// JS Frameworks comparions
+
+https://developer.ibm.com/recipes/tutorials/choosing-between-jquery-angularjs-reactjs-and-other-javascripting-tool/
+
 // ------------------------------------ Median Of Two Sorted Arrays -------------------------------------
 //Input: nums1 = [1,3], nums2 = [2]
 //Output: 2.00000
@@ -2332,4 +2406,3 @@ const nums1 = [1,3];
 const nums2 = [2];
 
 console.log(findMedianSortedArrays(nums1, nums2))
-
