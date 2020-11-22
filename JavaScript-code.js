@@ -581,6 +581,19 @@ console.log(adjacentElementsProduct([1,2,3]));
 };
 
 console.log(obj.getA().getB());
+	
+// Object.keys example
+
+var foo = { 'alpha' : 'puffin', 'beta' : 'beagle' };
+var keys = [];
+for (var key in foo) {
+    keys.push(key);
+   
+}
+
+document.body.textContent = keys;
+
+// Output - alpha, beta
 
 4. [1,2] .print() //1, 2
 
