@@ -1,4 +1,4 @@
-// Compiled by Amol on 22 Nov 2020
+// Compiled by Amol on 21 Nov 2020
 
 //Given sample alphanumerical string -- find the first character that doesn’t repeat on string
 
@@ -549,6 +549,29 @@ return a1.every(e => a2.includes(e));
 const arr1 = [1, 2, 5, 4, 0];
 const arr2 = [2, 4, 5, 0, 1];
 console.log(arraysEqual(arr1,arr2))
+
+
+// To find the maximum adjacent elements in an array
+
+const adjacentElementsProduct = (inputArray) => {
+ 	var products = [];
+	var biggestProduct = inputArray[0]*inputArray[1];
+
+  for (i=0;  i<inputArray.length-1 ; ++i) 
+  {
+    if((inputArray[i] * inputArray[i+1] ) > biggestProduct) 
+    { 
+      biggestProduct = inputArray[i]  *  inputArray[i+1] ;
+      products.length = 0;
+      products.push(inputArray[i]);
+      products.push(inputArray[i+1]);
+      //console.log("products = ", products) 
+    }
+  }
+	return products;
+}
+
+console.log(adjacentElementsProduct([1,2,3]));
 
 3. const obj ={  // to make  modification to code to print values of the object. 
 	 a:1,
@@ -2422,8 +2445,3 @@ const nums1 = [1,3];
 const nums2 = [2];
 
 console.log(findMedianSortedArrays(nums1, nums2))
-
-
-
-
-
