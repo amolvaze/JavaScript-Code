@@ -2480,6 +2480,7 @@ function twoSum(nums, target){
    comp[target- nums[i]] = i;
 
   }
+return [];
 }
 
 const nums = [2,7,11,15]
