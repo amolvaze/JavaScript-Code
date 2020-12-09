@@ -2290,6 +2290,9 @@ console.log(B(A))
 // -------------------------------------------------------------------------------------------------------------------------
 // Same example with promises  JS 
 
+//Practical example of Promise - https://www.ma-no.org/en/programming/javascript/javascript-promises-explained-with-simple-real-life-examples
+
+
 const posts = [
    {title:'post1' , body: 'this is post one'},
    {title:'post2' , body: 'this is post two'},
