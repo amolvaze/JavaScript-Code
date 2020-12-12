@@ -2497,8 +2497,15 @@ if(arr1.length == 0 || arr2.length == 0)
  return arr1 || arr2;
 
 var result1 = arr1.filter(a1 => arr2.indexOf(a1) === -1);
+// var result1 = arr1.filter(function(value, index, arr1){ //Another way
+//      return arr2.indexOf(value) === -1 ;
+// });
+// console.log('Result1', result1)
 var result2 = arr2.filter(a2 => arr1.indexOf(a2) === -1);
-
+// var result2 = arr2.filter(function(value, index, arr2){ // Another way
+//      return arr1.indexOf(value) === -1 ;
+// });
+// console.log('Result2', result2)  
 var result =  new Set([...result1.concat(result2).sort((a,b) => a-b)])
 return Array.from(result) 
 // console.log(result)
