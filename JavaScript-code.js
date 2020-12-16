@@ -1868,6 +1868,8 @@ To find the max element of an array
 
 var a = [1,2,3];
 var max = Math.max(...a);
+// another way
+var max = Math.max.apply(null, a);
 console.log(max)
 
 var x = function() {
