@@ -695,7 +695,6 @@ const keyValue = (input) => Object.entries(input).forEach(([key,value]) => {
 
 keyValue(a)
 
-
 // Another approach
 let printKeyValue = a => {
 		for(const [key, value] of Object.entries(a)) {
@@ -704,6 +703,7 @@ let printKeyValue = a => {
 }
 
 console.log(printKeyValue(a))
+
 
 const obj = {
    x:1,
@@ -1445,7 +1445,7 @@ for(var i=0; i< 3;i++)
 // if we change var instead in above, it will print 3,3,3 - because every time same i will change the variable values for closure.
 
 // To fix this, by keeping var as before in the above case and wrapping setTimeOut code inside function and self-invoking itself will print again 0,1,2.
-// by IIFE/self invoking fucntion, it creates block scope.
+// by IIFE/self invoking function, it creates block scope.
 
 for(var i=0; i< 3; i++){
   ((i) => {
@@ -1863,6 +1863,12 @@ console.log(n)
 }
 
 x(1,2,3,4);
+
+To find the max element of an array
+
+var a = [1,2,3];
+var max = Math.max(...a);
+console.log(max)
 
 var x = function() {
   //console.log(arguments); // prints array like object
@@ -2292,7 +2298,6 @@ console.log(B(A))
 
 //Practical example of Promise - https://www.ma-no.org/en/programming/javascript/javascript-promises-explained-with-simple-real-life-examples
 
-
 const posts = [
    {title:'post1' , body: 'this is post one'},
    {title:'post2' , body: 'this is post two'},
@@ -2471,6 +2476,7 @@ const nums2 = [2];
 
 console.log(findMedianSortedArrays(nums1, nums2))
 
+
 // Two Sum - O(n) solution
 
 function twoSum(nums, target){
@@ -2483,7 +2489,9 @@ function twoSum(nums, target){
    comp[target- nums[i]] = i;
 
   }
-return [];
+  
+  return [];
+  
 }
 
 const nums = [2,7,11,15]
@@ -2502,12 +2510,13 @@ var result1 = arr1.filter(a1 => arr2.indexOf(a1) === -1);
 // });
 // console.log('Result1', result1)
 var result2 = arr2.filter(a2 => arr1.indexOf(a2) === -1);
+
 // var result2 = arr2.filter(function(value, index, arr2){ // Another way
 //      return arr1.indexOf(value) === -1 ;
 // });
 // console.log('Result2', result2)  
 var result =  new Set([...result1.concat(result2).sort((a,b) => a-b)])
-return Array.from(result) 
+return Array.from(result)  
 // console.log(result)
 }
 
