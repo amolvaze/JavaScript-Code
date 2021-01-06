@@ -1181,7 +1181,7 @@ kids: [{
 }]
 }
 
-let result = JSON.stringify(profile).match(/\d+/gi).reduce((a,c)=> a + parseInt(c), 0);
+const result = JSON.stringify(profile).match(/\d+/gi).reduce((a,c)=> a + parseInt(c), 0);
 
 console.log(result);
 
