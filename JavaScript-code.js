@@ -1181,9 +1181,29 @@ kids: [{
 }]
 }
 
+
 const result = JSON.stringify(profile).match(/\d+/gi).reduce((a,c)=> a + parseInt(c), 0);
 
 console.log(result);
+
+// To loop thru above json array to print all the names.
+const json=  [{
+    name: "jill",
+    age : 23},
+    {
+    name: "John",
+    age : 12,  
+}
+    ];
+
+for (var key in json) {
+       if (json.hasOwnProperty(key)) {
+          console.log(json[key].name)
+       }
+    }
+
+// Output will be jill , john
+
 
 // Another solution 
 const addMemberAge = ({ age, kids = [] }) =>
