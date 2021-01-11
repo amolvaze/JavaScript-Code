@@ -45,6 +45,10 @@ function encodeString (string) {
 var str = "aabbaa"
 console.log(encodeString(str))
 
+// --------------------HTTP Status Codes link-------------------------------
+
+// https://www.restapitutorial.com/httpstatuscodes.html
+
 
 ----------------------------------------------------------------------------
 
