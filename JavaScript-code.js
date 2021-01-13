@@ -2609,3 +2609,32 @@ console.log(missingNo([])) // undefined
 console.log(missingNo([1,4,3])) // 2
 console.log(missingNo([5,1,4,2])) //3
 console.log(missingNo([1,2,3,4])) 
+
+// Given two strings s1 and s2, find if s1 is a substring of s2. If yes, return the index of the first occurrence, else return -1
+//Input: s1 = "for", s2 = "geeksforgeeks"
+//Output: 5
+//Explanation:
+//String "for" is present as a substring
+//of s2.
+
+const checkSubString = (s1,s2) => {
+ let m = s1.length;
+ let n = s2.length;
+ for(let i =0; i< Math.abs(n-m); i++){
+   let j;
+   let k =i
+   for(j=0; j< m; j++){
+     if(s2.charAt(k++)!== s1.charAt(j)){
+       break;
+     } 
+   }
+  if(j === m)
+   return i;
+ }
+
+ return -1;
+
+}
+
+console.log(checkSubString("for","geeksforgeeks"))
+console.log(checkSubString("geeksforgeeks", "for"))
