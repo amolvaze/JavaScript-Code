@@ -2589,6 +2589,22 @@ return total-sum
 
 }
 
+// Alternative using XOR
+// const findMissingNo = (array) => {
+// if(array.length === 0 || array === null) 
+// return undefined;
+// let missingNo;
+// array.sort((a,b) => a-b); // sorting array 
+// missingNo = array.length;
+// // loop thru array
+// for(let i= 0; i< array.length; i++){
+// missingNo  ^= i ^ array[i];
+// }
+
+// return missingNo;
+
+// }
+
 console.log(missingNo([])) // undefined
 console.log(missingNo([1,4,3])) // 2
 console.log(missingNo([5,1,4,2])) //3
