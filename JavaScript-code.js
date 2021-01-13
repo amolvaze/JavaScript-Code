@@ -6,6 +6,8 @@
 
 // FlexBox CSS Link- https://codepen.io/WebDevSimplified/pen/rqNVVb
 
+// CSS Grid - https://codepen.io/WebDevSimplified/pen/qJgJGX
+
 function firstNonRepeatedCharacter(string) {
     for (var i = 0; i < string.length; i++) {
         var c = string.charAt(i);
