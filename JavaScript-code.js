@@ -45,10 +45,6 @@ function encodeString (string) {
 var str = "aabbaa"
 console.log(encodeString(str))
 
-// --------------------HTTP Status Codes link-------------------------------
-
-// https://www.restapitutorial.com/httpstatuscodes.html
-
 
 ----------------------------------------------------------------------------
 
@@ -361,7 +357,9 @@ const normalFunc = () => {
 
 window.addEventListener("resize",normalFunc);
 
+//--------------------------HTTP Status Codes Link --------------
 
+ https://www.restapitutorial.com/httpstatuscodes.html
 
 //--------------------------------------------------------------------------------------------------------
 // Function to remove duplicates from Array using filter.
@@ -660,6 +658,22 @@ const obj = {
   }
 
 };
+
+
+function isBig(thing) {
+  if (thing == 0 || thing == 1 || thing == 2) {
+    return false
+  }
+  return true
+}
+console.log(isBig(1))    // false
+console.log(isBig([2]))  // false
+console.log(isBig([3])) // true
+
+
+const clothes = ['jacket', 't-shirt'];
+clothes.length = 0;
+console.log(clothes[0]) // nothing is printed. // undefined
 
 // to clone given object
 //const clone = Object.assign({}, obj); // shallow copy but it is only one level object and does not go as reference. 
@@ -2550,3 +2564,32 @@ const arr1 = [1,3,4,2]
 const arr2 = [4,2,8,6]
 
 console.log(removeDuplicates(arr1,arr2)) // output should be 1,3,6,8
+
+
+// Code to find the missing no in an array in linear time.
+
+// missing([])                         // undefined
+// missing([1, 4, 3])                  // 2
+// missing([2, 3, 4])                  // 1
+// missing([5, 1, 4, 2])               // 3
+// missing([1, 2, 3, 4])               // undefined
+
+const missingNo = a => {
+if(a.length === 0 || a === null)
+return undefined 
+let n = a.length + 1,
+sum=0,
+total = n * (n + 1)/2;
+
+for(let i =0; i< a.length; i++ ){
+  sum += a[i];
+}
+
+return total-sum
+
+}
+
+console.log(missingNo([])) // undefined
+console.log(missingNo([1,4,3])) // 2
+console.log(missingNo([5,1,4,2])) //3
+console.log(missingNo([1,2,3,4])) 
