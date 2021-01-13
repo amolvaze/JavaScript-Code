@@ -8,6 +8,8 @@
 
 // CSS Grid - https://codepen.io/WebDevSimplified/pen/qJgJGX
 
+// Link to create loading or progress bar using HTML, CSS and JS - https://codepen.io/WebDevSimplified/pen/oVXKQx
+
 function firstNonRepeatedCharacter(string) {
     for (var i = 0; i < string.length; i++) {
         var c = string.charAt(i);
