@@ -442,6 +442,27 @@ console.log(evenNumbers(arr))
 // };
 // ....
 
+// Cookies, Local Storage, Session Storage
+/*Parameter						Cookies					LocalStorage 				SessionStorage
+
+Capacity  						4kb					10mb						5mb
+
+Browsers						HTML4/HTML5				HTML5						HTML5
+
+Accessible From						Any window				Any window					Same tab
+
+Expires							Manually Set				Never						On tab close	
+
+Storage Location					Browser and Server			Browser only					Browser only		
+
+Sent with requests 					Yes					 No						No 
+
+
+*/
+
+
+
+
 //----------------------------------------------------------------------------------------------------------------
 
 //To write code for this function: sum(a)(b)(c)....( n)(). 
