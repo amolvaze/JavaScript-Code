@@ -2609,9 +2609,15 @@ sum=0,
 total = n * (n + 1)/2;
 
 for(let i =0; i< a.length; i++ ){
+  if(a[i] < 1) return undefined;
   sum += a[i];
 }
-
+let addition=0
+for(let i=1 ; i<= a.length; i++){
+addition += i;
+if(sum === addition) // 10 === 10 in our case
+  return undefined;
+}
 return total-sum
 
 }
@@ -2635,7 +2641,7 @@ return total-sum
 console.log(missingNo([])) // undefined
 console.log(missingNo([1,4,3])) // 2
 console.log(missingNo([5,1,4,2])) //3
-console.log(missingNo([1,2,3,4])) 
+console.log(missingNo([1,2,3,4])) //undefined
 
 // Given two strings s1 and s2, find if s1 is a substring of s2. If yes, return the index of the first occurrence, else return -1
 //Input: s1 = "for", s2 = "geeksforgeeks"
