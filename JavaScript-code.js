@@ -2644,23 +2644,25 @@ console.log(missingNo([1,2,3,4]))
 //String "for" is present as a substring
 //of s2.
 
-const checkSubString = (s1,s2) => {
- let m = s1.length;
- let n = s2.length;
- for(let i =0; i< Math.abs(n-m); i++){
-   let j;
-   let k =i
-   for(j=0; j< m; j++){
-     if(s2.charAt(k++)!== s1.charAt(j)){
-       break;
-     } 
-   }
-  if(j === m)
-   return i;
- }
 
- return -1;
-
+const checkSubString = (substr, str) =>
+{
+    let str_index, substr_index = 0;
+    let len_str = str.length;
+    let len_substr = substr.length;
+    
+    for (str_index = 0; str_index < len_str; str_index++)
+    {
+        if (str.charAt(str_index) === substr.charAt(substr_index))
+        {
+            if (++substr_index == len_substr)
+                break;
+        }
+        else
+            substr_index = 0;
+    }
+ 
+    return substr_index < len_substr ? -1 : str_index + 1 - len_substr;
 }
 
 console.log(checkSubString("for","geeksforgeeks"))
