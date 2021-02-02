@@ -4,6 +4,8 @@
 
 //Given sample alphanumerical string -- find the first character that doesn’t repeat on string
 
+// Arrow vs Regular function - https://levelup.gitconnected.com/arrow-function-vs-regular-function-in-javascript-b6337fb87032
+
 //Link:- https://codeburst.io/explaining-value-vs-reference-in-javascript-647a975e12a0 - Obj concepts
 
 // FlexBox CSS Link- https://codepen.io/WebDevSimplified/pen/rqNVVb
