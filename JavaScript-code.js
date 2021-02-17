@@ -1,4 +1,4 @@
-// Compiled by Amol on 21 Nov 2020
+// Compiled by Amol on 02/17/2021
 
 // Useful link- https://frontendmasters.com/books/front-end-handbook/2018/practice/interview-q.html
 
@@ -2677,3 +2677,40 @@ const checkSubString = (substr, str) =>
 
 console.log(checkSubString("for","geeksforgeeks"))
 console.log(checkSubString("geeksforgeeks", "for"))
+
+// -----------Verfiying alien Dictionary using JS -----------------
+
+// Time Complexity - O(n) and Space Complexity - O(1) due to Map.
+
+const isAlienSorted = (words, order) => {
+  const map = {};
+
+  for (let i = 0; i < order.length; i += 1) {
+    map[order[i]] = i;
+  }
+
+  // console.log('Map', map);
+
+  outer:
+  for (let i = 0; i < words.length - 1; i += 1) {
+    const current = words[i];
+    const next = words[i + 1];
+    const minLength = Math.min(current.length, next.length);
+    console.log('Min length ', minLength)
+    for (let i = 0; i < minLength; i += 1) {
+      // console.log(current[i])
+      // console.log(next[i])
+      if (current[i] === next[i]) continue;
+      if (map[current[i]] < map[next[i]]) continue outer;
+      if (map[current[i]] > map[next[i]]) return false;
+    }
+
+    if (current.length > next.length) return false;
+  }
+
+  return true;
+};
+
+const order = 'hlabcdefgijkmnopqrstuvwxyz';
+const words = ["hello","leetcode"];
+console.log(isAlienSorted(words,order));
