@@ -2713,4 +2713,9 @@ const isAlienSorted = (words, order) => {
 
 const order = 'hlabcdefgijkmnopqrstuvwxyz';
 const words = ["hello","leetcode"];
-console.log(isAlienSorted(words,order));
+console.log(isAlienSorted(words,order)); // output is true 
+
+//Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
+//Output: false
+
+
