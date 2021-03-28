@@ -55,4 +55,31 @@ function minDiff(arr) {
      return sum;
     
 }
-function main() {
+
+// Function to return list of movies using a list by fetching data from an API end point.
+// API endpoint: https://jsonmock.hackerrank.com/api/movies?Year=<year>
+
+const axios = require('axios');
+async function getMovieList(year) {
+  // write your code here
+  let result = [];
+  try {
+    const res = await axios.get(
+      `https://jsonmock.hackerrank.com/api/movies?Year=${year}`
+    );
+
+    res.data.data.forEach((d) => result.push(d.Title));
+  } catch (err) {
+    console.log(err);
+  }
+  return result;
+}
+
+
+
+
+
+  
+  
+  
+  
