@@ -609,8 +609,8 @@ console.log(adjacentElementsProduct([1,2,3]));
 3. const obj ={  // to make  modification to code to print values of the object. 
 	 a:1,
 	 b:2,
-	 getA(){console.log(this.a); return this; // we need to return this because subsequent methods are called in method chaining },
-	 getB(){console.log(this.b)}	
+	 getA(){console.log(this.a); return this; // we need to return this object because subsequent methods are called in method chaining },
+	 getB(){console.log(this.b)}	// no need to return this object here because this is the last method inside method chaining. 
 };
 
 console.log(obj.getA().getB());
