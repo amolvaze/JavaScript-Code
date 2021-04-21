@@ -1465,7 +1465,7 @@ console.log(b);
 
 //complexity - n + log n due to sorting
 
-apprach 4 - using  JS object
+//apprach 4 - using  JS object
 obj = {};
 for(let i of a) // i takes value and not index here 
 {
@@ -1889,7 +1889,7 @@ var str = '#this #is__ __#a test###__'
 str = str.replace(/#|_/g,'');
 console.log(str);
 
-// JS Inheritance
+/* JS Inheritance
        |
 -------------------------
    |                    |
@@ -1899,7 +1899,7 @@ Prototypal            Classical
 |                                               |          
 constructor Pattern                    Prototypal Pattern
 
-
+*/
 //Classical Model - Object is created from class 
 // E.g 
 /*
@@ -1936,7 +1936,7 @@ console.log(n)
 
 x(1,2,3,4);
 
-To find the max element of an array
+// To find the max element of an array
 
 var a = [1,2,3];
 var max = Math.max(...a);
@@ -2370,7 +2370,9 @@ console.log(B(A))
 // -------------------------------------------------------------------------------------------------------------------------
 // Same example with promises  JS 
 
-//Practical example of Promise - https://www.ma-no.org/en/programming/javascript/javascript-promises-explained-with-simple-real-life-examples
+//Practical example of Promise -
+
+//https://www.ma-no.org/en/programming/javascript/javascript-promises-explained-with-simple-real-life-examples
 
 const posts = [
    {title:'post1' , body: 'this is post one'},
@@ -2482,7 +2484,7 @@ fetchUsers();
 
 // JS Frameworks comparions
 
-https://developer.ibm.com/recipes/tutorials/choosing-between-jquery-angularjs-reactjs-and-other-javascripting-tool/
+// https://developer.ibm.com/recipes/tutorials/choosing-between-jquery-angularjs-reactjs-and-other-javascripting-tool/
 
 // ------------------------------------ Median Of Two Sorted Arrays -------------------------------------
 //Input: nums1 = [1,3], nums2 = [2]
