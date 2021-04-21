@@ -406,7 +406,6 @@ var result = arr.filter(
  
 function (value, index, arr) {
 
-  
   return value%2 ==0
 
 }  
@@ -495,7 +494,7 @@ let sum = a => b => b ? sum(a + b) : a;
 console.log(sum(10)(20)(3)(4)());
 
 
-Difference between JavaScript forEach vs JavaScript Map - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
+// Difference between JavaScript forEach vs JavaScript Map - https://codeburst.io/javascript-map-vs-foreach-f38111822c0f
 
 
 var array = [1,2,3,4,5];
@@ -539,9 +538,10 @@ const func = function() {
 
 func('t','e','c','h');
 
-----------------------------------------------------------JS Mock Interview Questions and Solutions --------------------------------------------
+//---------------------------------------------------------JS Mock Interview Questions and Solutions --------------------------------------------
 
-1. let x = { a:1, b:2};  // to convert given object into array and print 1 and 2.
+1. 
+let x = { a:1, b:2};  // to convert given object into array and print 1 and 2.
 const array = [];
 
 for ( let i in x)
@@ -551,7 +551,8 @@ for ( let i in x)
 
 console.log(array);
 
-2. let x = "hi"; // to x x to y
+2. 
+let x = "hi"; // to x x to y
 let y = "ih";
 
 const reverseStr = (str) => str.toLowerCase().split('').reverse().join('');
@@ -606,23 +607,22 @@ const adjacentElementsProduct = (inputArray) => {
 
 console.log(adjacentElementsProduct([1,2,3]));
 
-3. const obj ={  // to make  modification to code to print values of the object. 
+3. 
+const obj ={  // to make  modification to code to print values of the object. 
 	 a:1,
 	 b:2,
 	 getA(){console.log(this.a); return this; // we need to return this object because subsequent methods are called in method chaining },
 	 getB(){console.log(this.b)}	// no need to return this object here because this is the last method inside method chaining. 
 };
 
-console.log(obj.getA().getB());
+console.log(obj.getA().getB())
 
 // Object.keys example
 
-var foo = { 'alpha' : 'puffin', 'beta' : 'beagle' };
-var keys = [];
+var foo = { 'alpha' : 'puffin', 'beta' : 'beagle' }
+var keys = []
 for (var key in foo) {
-    keys.push(key);
-   
-}
+    keys.push(foo[key])}
 
 document.body.textContent = keys;
 
@@ -723,7 +723,7 @@ const b = [2,5,7,12, 1000]; // it could be huge array like millions of values.
 
 // to create array c by merging a and b.
 
-const c = a.concat(b).sort((a,b) => a -b); // using sort takes n logn time 
+const c = a.concat(b).sort((a,b) => a -b); // using sort takes n log n time 
 
 console.log(c);
 
@@ -784,7 +784,8 @@ console.log(obj.getX());
 // console.log(obj.getX()); 
 
 
-9. let a = [1,2,5,7];
+9. 
+let a = [1,2,5,7];
 
 // to sum all array elements
 
@@ -850,8 +851,8 @@ function x() {} and let x = function() {} // difference between these 2 function
 
 (function x() {}) ();
 
-13. Given const till = {
-	
+13. 
+const till = {
 	penny: 12,
 	nickel: 10,
 	dine: 2,
@@ -881,8 +882,6 @@ function money(total)
 14. 
 
 let str = "i love javascript" // to reverse this string
-
-
 const str = "i love javascript" // to reverse this string
 const reverseStr = str => str.toLowerCase().split('').reverse().join('');
 
@@ -910,7 +909,8 @@ function findMinMax(array)
 
  alert(findMinMax(array));
 
-16. let x =1234; // to find out the length of the no  len= 4 without converting into string
+16. 
+let x =1234; // to find out the length of the no  len= 4 without converting into string
 
 let findLength = (n) => {
   var count = 0;
@@ -1050,7 +1050,8 @@ let x = {
 let x = 2; // to convert no to hex.
 console.log(x.toString(16));
 
-22. Fizbuzz program 
+22. 
+//Fizbuzz program 
 
 let fizbuzz = () => {
 	
