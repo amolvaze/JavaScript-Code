@@ -96,3 +96,27 @@ function getInventoryList() {
   };
   return result;
 }
+
+// you can write to stdout for debugging purposes, e.g.
+// console.log('this is a debug message');
+// A is input array to function
+
+function solution(A) {
+  // write your code in JavaScript (Node.js 8.9.4)
+  function Integer(i) {
+    this.intval = i;
+  }
+
+  Integer.prototype.value = function () {
+    return this.intval;
+  };
+
+  let result = [];
+
+  for (let i = 0; i < A.length; i++) {
+    let integer = new Integer(A[i]);
+    result.push(integer);
+  }
+
+  return result;
+}
