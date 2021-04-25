@@ -11,8 +11,12 @@ export default function Autocomplete({ onSelectItem }) {
 
   const fetchData = () => {
     setData(value.split(""));
-    //  axios.get(ITEMS_API_URL, { params: { q: value} })
-    //  .then(res => setData(res.data))
+
+    // Using GET Axios fetching data from API.
+
+    axios
+      .get(ITEMS_API_URL, { params: { q: value } })
+      .then((res) => setData(res.data));
   };
 
   const debounceFetchData = lodash.debounce(fetchData, DEBOUNCE_DELAY);
