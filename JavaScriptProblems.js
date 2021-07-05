@@ -27,7 +27,7 @@ console.log(onlyTruthy([0, 1, '', 'a']))
 const sum = a => a.reduce((al, el) => al + el )
 console.log(sum([0,4,4,4]))
 
-// const removeVowels =/ str => str.replaceAll(/aieou/gi,"")
+// const removeVowels =/ str => str.replaceAll(/[aieou]/gi,"")
 // console.log(removeVowels('FOOBAR'))
 
 const removeDuplicates = a => [...new Set(a)]
