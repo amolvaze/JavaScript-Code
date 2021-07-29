@@ -2570,6 +2570,23 @@ function twoSum(nums, target){
   
 }
 
+// Write JS Fucntion to return the names of the students who went to UTA only
+
+let arr = [
+  {name: 'sam', age: 24, school: 'UTD'},
+  {name: 'Tim', age: 34, school: 'UT'},
+  {name: 'Shahrukh', age: 24, school: 'UTA'},
+  {name: 'Romil', age: 21, school: 'UTA'}
+]
+
+const getNames = (arr) => {
+ const final = arr.filter(x => x.school === 'UTA')
+ return final.map(f => f.name);
+
+}
+
+ console.log(getNames(arr))
+
 const nums = [2,7,11,15]
 console.log(twoSum(nums, 9))
 
@@ -2701,7 +2718,7 @@ const isAlienSorted = (words, order) => {
     const current = words[i];
     const next = words[i + 1];
     const minLength = Math.min(current.length, next.length);
-    console.log('Min length ', minLength)
+    console.log('Min length ', minLeng  	th)
     for (let i = 0; i < minLength; i += 1) {
       // console.log(current[i])
       // console.log(next[i])
