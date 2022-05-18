@@ -2740,4 +2740,44 @@ console.log(isAlienSorted(words,order)); // output is true
 //Input: words = ["apple","app"], order = "abcdefghijklmnopqrstuvwxyz"
 //Output: false
 
+//--------------------------------------- JS Higher Order Array Functions Questions--------------------------------------
+// 
+const servers = [
+    {
+        name: 'Main Localhost',
+        description: 'Short description',
+        alerts: 5,
+        host: '127.0.0.1',
+        status: 'offline'
+    },
+    {
+        name: 'Router',
+        description: 'Short description',
+        alerts: 1,
+        host: '192.168.1.1',
+        status: 'online'
+    },
+    {
+        name: 'Empty Gateway',
+        description: 'Short description',
+        alerts: 3,
+        host: '0.0.0.0',
+        status: 'online'
+    },
+    {
+        name: 'Localbox',
+        description: 'Short description',
+        alerts: 2,
+        host: 'localhost',
+        status: 'offline'
+    }
+]
 
+// create an array from the above that returns all online servers
+const onlineServers = servers.filter(el => el.status === 'online')
+console.log(onlineServers)
+
+// aggregate all alerts
+const totalAlerts = servers.reduce((prev, curr) => prev + curr.alerts, 0)
+
+console.log(totalAlerts)
